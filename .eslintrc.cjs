@@ -21,5 +21,10 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
+    'class-methods-use-this': 'off',
+    'no-useless-constructor': 'off',
+    'no-unused-vars': 'off',
+    'no-empty-function': 'off',
   },
 };
