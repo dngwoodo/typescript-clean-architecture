@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { CreateCounter, CreateCounterUsecase } from '../../../counter';
-import { StubCounterRepository } from '../../stubs/stub-counter.repository';
+import { StubCounterRepository } from '../../stubs/stub-counter-repository';
 
 describe('CreateCounterUsecase', () => {
   describe('execute', () => {

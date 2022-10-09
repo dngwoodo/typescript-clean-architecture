@@ -16,8 +16,8 @@ export class CounterFactory {
     return new core.CreateCounter(this.counterRepository);
   }
 
-  getAllCounter(): core.GetAllCounterUsecase {
-    return new core.GetAllCounter(this.counterRepository);
+  getAllCounter(): core.GetAllCountersUsecase {
+    return new core.GetAllCounters(this.counterRepository);
   }
 
   getIncrementCounter(): core.IncrementCounter {
