@@ -18,5 +18,7 @@ export class StubCounterRepository implements CounterRepository {
   }
 
   updateCounter(counter: Counter): void {
+    const index = this.counters.findIndex((value) => value.id === counter.id);
+    this.counters[index] = counter;
   }
 }
