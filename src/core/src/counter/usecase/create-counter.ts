@@ -2,11 +2,11 @@ import { Counter } from '../entities/counter.entity';
 import { Usecase } from '../../base/usecase.interface';
 import { CounterRepository } from '../repository/couter-repository.interface';
 
-export interface CreateCounter extends Usecase<Counter> {
+export interface CreateCounterUsecase extends Usecase<Counter> {
   execute(...args: any[]): Counter;
 }
 
-export class CreateCounterUsecase implements CreateCounter {
+export class CreateCounter implements CreateCounterUsecase {
   constructor(private counterRepository: CounterRepository) {
   }
 

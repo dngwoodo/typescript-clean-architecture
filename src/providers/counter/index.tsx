@@ -7,7 +7,8 @@ import * as presentation from '../../presentation/src/services';
 import * as core from '../../core/src';
 
 type CounterContextType = {
-  createCounterUsecase: core.CreateCounterUsecase
+  createCounter: core.CreateCounterUsecase,
+  getAllCounter: core.GetAllCounterUsecase
 }
 
 const CounterContext = createContext<CounterContextType | null>(null);
@@ -20,10 +21,12 @@ function CounterProvider({ children }: Props) {
   const localStorageService = new presentation.LocalStorageServiceImpl();
   const counterFactory = new di.CounterFactory(localStorageService);
 
-  const createCounterUsecase = counterFactory.getCreateCounterUsecase();
+  const createCounter = counterFactory.getCreateCounter();
+  const getAllCounter = counterFactory.getAllCounter();
 
   const value = useMemo(() => ({
-    createCounterUsecase,
+    createCounter,
+    getAllCounter,
   }), []);
 
   return (

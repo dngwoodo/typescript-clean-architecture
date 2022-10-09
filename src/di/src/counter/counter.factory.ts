@@ -10,9 +10,13 @@ export class CounterFactory {
     this.counterRepository = new data.CounterRepositoryImpl(this.localStorageService);
   }
 
-  getCreateCounterUsecase(): core.CreateCounterUsecase {
+  getCreateCounter(): core.CreateCounterUsecase {
     // 의존 관계 주입
     // repository
-    return new core.CreateCounterUsecase(this.counterRepository);
+    return new core.CreateCounter(this.counterRepository);
+  }
+
+  getAllCounter(): core.GetAllCounterUsecase {
+    return new core.GetAllCounter(this.counterRepository);
   }
 }
