@@ -2,7 +2,7 @@ import * as core from '../../../core/src';
 import { LocalStorageService } from '../common';
 
 export class CounterRepositoryImpl implements core.CounterRepository {
-  get counterIds(): string[] {
+  private get counterIds(): string[] {
     const counterIds = JSON.parse(this.localStorageService.get('counter-ids'));
 
     /** for app being used for first time */
@@ -13,7 +13,7 @@ export class CounterRepositoryImpl implements core.CounterRepository {
     return counterIds.ids;
   }
 
-  set counterIds(newIds: string[]) {
+  private set counterIds(newIds: string[]) {
     this.localStorageService.set('counter-ids', JSON.stringify({ ids: newIds }));
   }
 
