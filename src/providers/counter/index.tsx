@@ -8,7 +8,8 @@ import * as core from '../../core/src';
 
 type CounterContextType = {
   createCounter: core.CreateCounterUsecase,
-  getAllCounter: core.GetAllCounterUsecase
+  getAllCounter: core.GetAllCounterUsecase,
+  incrementCounter: core.IncrementCounterUsecase,
 }
 
 const CounterContext = createContext<CounterContextType | null>(null);
@@ -23,10 +24,12 @@ function CounterProvider({ children }: Props) {
 
   const createCounter = counterFactory.getCreateCounter();
   const getAllCounter = counterFactory.getAllCounter();
+  const incrementCounter = counterFactory.getIncrementCounter();
 
   const value = useMemo(() => ({
     createCounter,
     getAllCounter,
+    incrementCounter,
   }), []);
 
   return (

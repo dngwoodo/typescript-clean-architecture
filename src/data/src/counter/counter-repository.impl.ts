@@ -45,4 +45,8 @@ export class CounterRepositoryImpl implements core.CounterRepository {
   private getCounterById(counterId: string): core.Counter {
     return JSON.parse(this.localStorageService.get(counterId));
   }
+
+  updateCounter(counter: core.Counter) {
+    this.localStorageService.set(counter.id!, JSON.stringify(counter));
+  }
 }
