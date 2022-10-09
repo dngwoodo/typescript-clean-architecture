@@ -10,7 +10,7 @@ export class CreateCounter implements CreateCounterUsecase {
   constructor(private counterRepository: CounterRepository) {
   }
 
-  execute(...args: any[]): Counter {
+  execute(): Counter {
     return this.counterRepository.createCounter({
       id: Math.random().toString().substring(2),
       currentCount: 0,
