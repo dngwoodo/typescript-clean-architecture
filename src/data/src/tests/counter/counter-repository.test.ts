@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 
-import { build } from 'vite';
 import { CounterRepositoryImpl } from '../../counter';
 import { StubLocalStorageService } from '../stubs/stub-local-storage-service';
 import { buildCounter } from '../../../../test/data/counter/buildCounter';
