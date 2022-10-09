@@ -1,5 +1,9 @@
+import * as presentation from './presentation/src';
+
 export default function App() {
   return (
-    <div>App</div>
+    <main>
+      <presentation.Counter />
+    </main>
   );
 }
