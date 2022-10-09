@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
-import * as core from '../../../../core/src';
+
+import * as core from '../../../core/src';
 
 export const buildCounter = (): core.Counter => ({
   id: faker.datatype.uuid(),
