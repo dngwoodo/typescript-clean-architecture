@@ -7,7 +7,7 @@ export type CounterStoreSnapshot = {
 }
 
 export class CounterStore extends Store<CounterStoreSnapshot> {
-  constructor(private counterFactory: di.CounterFactory) {
+  constructor(private counterFactory: di.ICounterFactory) {
     super();
     this.counterFactory = counterFactory;
     this.takeSnapshot();
