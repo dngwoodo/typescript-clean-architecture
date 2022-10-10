@@ -1,30 +1,15 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { CounterProvider } from '../../../../provider/src/counter';
 import { CounterList } from '../../counter';
 import { buildCounter } from '../../../../test/data/counter/buildCounter';
-import Store from '../../../../store/src/base/Store';
+import { StubCounterStore } from '../stubs/stub-counter-store';
 import * as store from '../../../../store/src';
-import * as core from '../../../../core/src';
-import { CounterStoreSnapshot } from '../../../../store/src';
-
-class StubCounterStore extends Store<store.CounterStoreSnapshot> {
-  snapshot = { counters: [] } as { counters: core.Counter[] };
-
-  constructor(counters: core.Counter[] = []) {
-    super();
-    this.snapshot.counters = counters;
-  }
-
-  createCounter() {
-    this.snapshot.counters.push(buildCounter());
-  }
-}
 
 describe('CounterList', () => {
-  function renderCounterList(stubCounterStore: Store<CounterStoreSnapshot>) {
+  function renderCounterList(stubCounterStore: store.CounterStore) {
     render(
       <CounterProvider store={stubCounterStore}>
         <CounterList />
