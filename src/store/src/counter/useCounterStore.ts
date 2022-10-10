@@ -2,17 +2,12 @@ import {
   useSyncExternalStore,
 } from 'react';
 
-import * as di from '../../../di/src';
-import * as presentation from '../../../presentation/src/services';
 import * as store from '../../../store/src';
-
-const counterStore = new store.CounterStore(
-  new di.CounterFactory(
-    new presentation.LocalStorageServiceImpl(),
-  ),
-);
+import { useCounter } from '../../../provider/src/counter';
 
 export function useCounterStore(): [store.CounterStoreSnapshot, store.CounterStore] {
+  const counterStore = useCounter();
+
   const snapshot = useSyncExternalStore(
     (onStoreChange) => {
       counterStore.addListener(onStoreChange);
