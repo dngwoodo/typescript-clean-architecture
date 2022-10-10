@@ -15,7 +15,8 @@ export function CounterList() {
       >
         counter 생성
       </button>
-      {
+      <ul>
+        {
         snapshot.counters.map((counter) => (
           <CounterItem
             key={counter.id}
@@ -23,6 +24,7 @@ export function CounterList() {
           />
         ))
       }
+      </ul>
     </>
   );
 }

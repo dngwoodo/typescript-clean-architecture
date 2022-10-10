@@ -5,7 +5,7 @@ export function CounterItem({ counter }:{ counter: core.Counter }) {
   const [_, counterStore] = store.useCounterStore();
 
   return (
-    <div>
+    <li>
       <p>{counter.currentCount}</p>
       <button
         type="button"
@@ -16,6 +16,6 @@ export function CounterItem({ counter }:{ counter: core.Counter }) {
         증가
       </button>
       <button type="button">감소</button>
-    </div>
+    </li>
   );
 }

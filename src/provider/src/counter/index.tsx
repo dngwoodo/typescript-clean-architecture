@@ -1,12 +1,13 @@
 import { createContext, ReactNode, useContext } from 'react';
 
-import { CounterStore } from '../../../store/src';
+import { CounterStore, CounterStoreSnapshot } from '../../../store/src';
+import Store from '../../../store/src/base/Store';
 
-const CounterContext = createContext<CounterStore | null>(null);
+const CounterContext = createContext<Store<CounterStoreSnapshot> | null>(null);
 
 type Props = {
   children: ReactNode
-  store: CounterStore,
+  store: Store<CounterStoreSnapshot>,
 };
 
 export function CounterProvider({ children, store }: Props) {
